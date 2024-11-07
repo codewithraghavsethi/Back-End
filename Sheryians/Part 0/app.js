@@ -1,7 +1,14 @@
 const express = require("express");
 const app = express()
+const morgan = require('morgan')
+
+
+app.use(morgan("dev"))
 
 app.set("veiw engine", "ejs")
+
+app.use(express.json())
+app.use(express.urlencoded({extended: true}))
 
 app.use((req, res, next)=>{
     console.log("Hello Ji")
@@ -19,10 +26,14 @@ app.get("/", (req, res, next)=>{
     res.render("index.ejs")
 })
 
-app.get("/get-form-data", (req, res)=>{
-    console.log(req.query)
-    res.send("Data Recieved")
+// app.get("/get-form-data", (req, res)=>{
+//     console.log(req.query)
+//     res.send("Data Recieved")
+// })
 
+app.post("/get-form-data", (req, res)=>{
+    console.log(req.body)
+    res.send("Data Recieved")
 })
 
 
