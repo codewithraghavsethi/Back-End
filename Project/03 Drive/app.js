@@ -1,9 +1,13 @@
 const express = require("express");
 const app = express();
 const userRouter = require("./routes/user.routes");
-const { body, validationResult } = require('express-validator');
+const { body, validationResult } = require("express-validator");
+const dotenv = require("dotenv")
+const connectToDb = require("./config/db");
 
+dotenv.config();
 
+connectToDb();
 
 app.set("view engine", "ejs");
 app.use(express.json());
