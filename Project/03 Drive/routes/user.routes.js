@@ -66,6 +66,14 @@ router.post(
       })
     }
     
+    const isMatch = await bcrypt.compare(password, user.password); 
+    if(!isMatch){
+      return res.status(400).json({
+        massage: "username or password is incorrect"
+      })
+    }
+
+
   }
 );
 
