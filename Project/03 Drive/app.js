@@ -4,12 +4,14 @@ const userRouter = require("./routes/user.routes");
 const { body, validationResult } = require("express-validator");
 const dotenv = require("dotenv")
 const connectToDb = require("./config/db");
+const cookieParser = require("cookie-parser")
 
 dotenv.config();
 
 connectToDb();
 
 app.set("view engine", "ejs");
+app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
