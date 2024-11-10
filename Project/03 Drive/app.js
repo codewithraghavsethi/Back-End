@@ -5,6 +5,7 @@ const { body, validationResult } = require("express-validator");
 const dotenv = require("dotenv")
 const connectToDb = require("./config/db");
 const cookieParser = require("cookie-parser")
+const indexRouter = require("./routes/index.routes")
 
 dotenv.config();
 
@@ -19,6 +20,8 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+
+app.use("/", indexRouter);
 app.use("/user", userRouter);
 
 app.listen(3000, () => {
