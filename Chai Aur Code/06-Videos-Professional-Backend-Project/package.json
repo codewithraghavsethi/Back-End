@@ -4,19 +4,22 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon"
+    "dev": "nodemon src/index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "javascript",
+    "sethi",
+    "backend"
+  ],
+  "author": "raghav",
   "license": "ISC",
   "description": "This is a Backend Project.",
   "devDependencies": {
+    "dotenv": "^16.4.7",
     "nodemon": "^3.1.7",
     "prettier": "^3.4.2"
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.8.4"
   }
